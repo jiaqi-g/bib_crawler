@@ -1,4 +1,3 @@
 
-Weighted path queries on semistructured databases
 regular expressions kai zeng
 efficient pattern match yanlei diao
