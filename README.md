@@ -7,5 +7,6 @@ A bib latex crawler and generator.
 * Sources: DBLP
 
 See details in example: output.bib
+
 Welcome contribution!
 
