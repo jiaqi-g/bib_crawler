@@ -61,6 +61,9 @@ class ResultPage:
 
 		if len(s) == 1:
 			return Link(s[0])
+		elif len(s) > 1:
+			print 'More than one entry found for keywords.'
+			return Link(s[0])
 		else:
 			raise Exception()
 
@@ -81,22 +84,22 @@ class DblpCrawler:
 
 ########################
 
+def out(s):
+	print s
+
 def main():
 	USAGE = """
 
-	USAGE: main.py [-s <query-source>] SOURCE DEST
+	USAGE: main.py [-s <query-source>] SOURCE
 		--help
 			Displays input options
 		-s, --source <query-source>
 			(Optional)Provide source to crawl bib data, dblp or google
 		SOURCE
 			Input file of a paper keywords list
-		DEST
-			Output bib file
 	"""
 
 	source = 'in.txt'
-	dest = 'output.bib'
 	crawler = DblpCrawler()
 
 	comments = ['\n% \\bibliography{mybib}{}', '\\bibliographystyle{plain}\n']
@@ -112,12 +115,11 @@ def main():
 					keywords = '_'.join(keywords.split(' '))
 					comments.append('\cite{' + keywords + '}')
 					contents.append(re.sub('(?<={).+', keywords +',', content, count=1))
-			except Exception, e:
-				print 'More than one entry found for keywords: ' + keywords
+			except Exception, e:	
+				print 'No entry found for keywords: ' + keywords
 
-	with open(dest, 'w') as o:
-		o.write("\n% ".join(comments))
-		o.write("\n")
-		o.write("\n".join(contents))
+	out("\n% ".join(comments))
+	out("\n")
+	out("\n".join(contents))
 
 main()

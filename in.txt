@@ -1,3 +1,5 @@
-
-regular expressions kai zeng
-efficient pattern match yanlei diao
+Complex Event Processing for RFID Data Streams
+Processing Flows of Information: From Data Stream to
+Active Complex Event Processing: Applications in
+Semantic Complex Event Processing
+Pattern Matching in Financial Time
